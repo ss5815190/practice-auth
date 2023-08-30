@@ -39,25 +39,24 @@
     color: rgb(255, 170, 52);
     text-decoration: underline;
 }
-.all-event,.home,.CreateEvent{
-    margin-top: 20vh;
+.all-event,.home,.CreateEvent,.login,.register{
+    margin-top: 25vh;
 }
-
-.CreateEvent{
-    border-radius: 20px;
-    padding: 20px;
+.register h1{
+    text-align: center;
 }
-.CreateEvent form{
+/*  */
+form{
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 45vw;
 }
-.CreateEvent form label{
+form label{
     display: flex;
     flex-direction: column;
 }
-.CreateEvent form label input{
+form label input{
     margin-top: 5px;
     background-color: rgb(88, 86, 86);
     height: 30px;
@@ -70,4 +69,23 @@
 } 
 .CreateEvent form .description input {
     height: 100px;
+}
+.button-wrap{
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+.button-wrap > button + button {
+    background-color: rgb(223, 211, 74);
+    color: black;
+}
+button{
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    font-size: 16px;
+    padding: 12px 15px;
+    border-radius: 5px;
+    cursor: pointer;
 }

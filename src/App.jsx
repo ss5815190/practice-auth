@@ -5,6 +5,8 @@ import RootLayout from './pages/root';
 import AllEventPage from './pages/all-event-page';
 import ErrorPage from './pages/error-page/ErrorPage';
 import CreateEvent from './pages/create-event';
+import Login from './pages/login';
+import Register from './pages/register';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,8 @@ const router = createBrowserRouter([
       { path: '/', element: <Home /> },
       { path: '/event', element: <AllEventPage /> },
       { path: '/newEvent', element: <CreateEvent /> },
+      { path: 'login', element: <Login /> },
+      { path: 'register', element: <Register /> },
     ],
   },
 ]);
