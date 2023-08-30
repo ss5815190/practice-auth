@@ -42,7 +42,7 @@
 .all-event,.home,.CreateEvent,.login,.register{
     margin-top: 25vh;
 }
-.register h1{
+.register h1,.login h1{
     text-align: center;
 }
 /*  */
