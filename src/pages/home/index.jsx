@@ -1,8 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <div>home</div>
+    <div className="home">
+      home
+      <p>
+        <Link to="/event">to event page</Link>
+      </p>
+    </div>
   );
 }
 

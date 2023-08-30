@@ -2,7 +2,7 @@ import React from 'react';
 
 function AllEventPage() {
   return (
-    <div>AllEventPage</div>
+    <div className="all-event">AllEventPage</div>
   );
 }
 
