@@ -60,10 +60,14 @@
 .CreateEvent form label input{
     margin-top: 5px;
     background-color: rgb(88, 86, 86);
-    border-style: none;
     height: 30px;
     border: 1px solid rgb(210, 209, 209);
 }
-.CreateEvent form .description input{
+.CreateEvent form label textarea{
+    margin-top: 5px;
+    background-color: rgb(88, 86, 86);
+    border: 1px solid rgb(210, 209, 209);
+} 
+.CreateEvent form .description input {
     height: 100px;
 }
