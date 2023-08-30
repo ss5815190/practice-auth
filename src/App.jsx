@@ -4,6 +4,7 @@ import Home from './pages/home';
 import RootLayout from './pages/root';
 import AllEventPage from './pages/all-event-page';
 import ErrorPage from './pages/error-page/ErrorPage';
+import CreateEvent from './pages/create-event';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: '/event', element: <AllEventPage /> },
+      { path: '/newEvent', element: <CreateEvent /> },
     ],
   },
 ]);

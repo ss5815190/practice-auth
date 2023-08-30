@@ -1,5 +1,5 @@
 .App{
-    background-color: black;
+    background-color: rgb(30, 25, 25);
     min-height: 100vh;
     color: white;
     display: flex;
@@ -9,7 +9,6 @@
     position: relative;
 }
 .root-layout{
-    background-color: black;
     width: 100vw;
     position: fixed;
     display: flex;
@@ -18,8 +17,9 @@
 }
 .root-layout h1{
     position: absolute;
-    top: 30px;
+    top: 25px;
     left: 20px;
+    font-size: 35px;
 }
 .root-layout ul{
     list-style: none;
@@ -32,14 +32,38 @@
 .root-layout ul li a{
     text-decoration: none;
     color: rgb(174, 117, 37);
+    font-weight: 600;
+    font-size: 20px;
 }
 .root-layout ul li .nav-active{
     color: rgb(255, 170, 52);
     text-decoration: underline;
 }
-.all-event{
+.all-event,.home,.CreateEvent{
     margin-top: 20vh;
 }
-.home{
-    margin-top: 20vh;
+
+.CreateEvent{
+    border-radius: 20px;
+    padding: 20px;
+}
+.CreateEvent form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 45vw;
+}
+.CreateEvent form label{
+    display: flex;
+    flex-direction: column;
+}
+.CreateEvent form label input{
+    margin-top: 5px;
+    background-color: rgb(88, 86, 86);
+    border-style: none;
+    height: 30px;
+    border: 1px solid rgb(210, 209, 209);
+}
+.CreateEvent form .description input{
+    height: 100px;
 }
