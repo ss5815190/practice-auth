@@ -1,6 +1,6 @@
 import { json, redirect } from 'react-router-dom';
 
-const Authentication = async ({ email, password, mode }) => {
+const Authentication = async (email, password, mode) => {
   const response = await fetch(`http://localhost:8080/${mode}`, {
     method: 'POST',
     headers: {
@@ -25,7 +25,8 @@ const Authentication = async ({ email, password, mode }) => {
   const expiration = new Date();
   expiration.setHours(expiration.getHours() + 1);
   localStorage.setItem('expiration', expiration.toISOString());
-  return redirect('/');
+  redirect('/');
+  return null;
 };
 
 export default Authentication;

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { v4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
 import SubmitEvent from '../../components/SubmitEvent';
 
 function CreateEvent() {
@@ -7,9 +8,16 @@ function CreateEvent() {
   const imgUrlInputRef = useRef();
   const dateInputRef = useRef();
   const descriptionInputRef = useRef();
+  const token = localStorage.getItem('token');
+  // 還沒登入
+  if (!token) {
+    return <div className="CreateEvent">Not login yet</div>;
+  }
+  const navigate = useNavigate();
   const handleCancel = () => {
-    console.log('c');
+    navigate('/event');
   };
+
   const handleSave = () => {
     SubmitEvent({
       id: v4(),
@@ -19,6 +27,7 @@ function CreateEvent() {
       description: descriptionInputRef.current.value,
     });
   };
+
   return (
     <div className="CreateEvent">
       <form>
