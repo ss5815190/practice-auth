@@ -58,7 +58,7 @@ function CreateEvent() {
       </form>
       <div className="button-wrap">
         <button type="button" onClick={handleCancel} className="cancel">Cancel</button>
-        <button type="button" onClick={handleSave} className="save">Save</button>
+        <button type="button" onClick={handleSave} className="btn-light">Save</button>
       </div>
     </div>
   );

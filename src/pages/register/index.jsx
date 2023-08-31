@@ -13,7 +13,7 @@ function Register() {
   const navigate = useNavigate();
   const handleRegister = () => {
     const mode = 'signup';
-    Authentication(registerEmail.current.value, registerPassword.current.value, mode);
+    Authentication(registerEmail.current.value, registerPassword.current.value, mode, navigate);
   };
   const switchToLogin = () => {
     navigate('/login');

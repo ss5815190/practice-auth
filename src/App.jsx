@@ -8,6 +8,7 @@ import CreateEvent from './pages/create-event';
 import Login from './pages/login';
 import Register from './pages/register';
 import Event from './components/Events';
+import EventDetail from './pages/event-detail';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     children: [
       { path: '', element: <Home /> },
       { path: 'event', element: <AllEventPage />, loader: Event },
+      { path: 'event/:id', element: <EventDetail /> },
       { path: 'newEvent', element: <CreateEvent /> },
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },

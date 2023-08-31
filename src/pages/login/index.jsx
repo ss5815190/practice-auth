@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Authentication from '../../components/Authentication';
 
 function Login() {
+  const navigate = useNavigate();
   const haveToken = localStorage.getItem('token');
   // 已登入
   if (haveToken) {
@@ -10,10 +11,9 @@ function Login() {
   }
   const loginEmail = useRef();
   const loginPassword = useRef();
-  const navigate = useNavigate();
   const handleLogin = () => {
     const mode = 'login';
-    Authentication(loginEmail.current.value, loginPassword.current.value, mode);
+    Authentication(loginEmail.current.value, loginPassword.current.value, mode, navigate);
   };
   const switchToRegister = () => {
     navigate('/register');
