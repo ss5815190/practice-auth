@@ -76,10 +76,7 @@ form label input{
     justify-content: end;
     gap: 10px;
 }
-.button-wrap > button + button {
-    background-color: rgb(223, 211, 74);
-    color: black;
-}
+
 button{
     border-style: none;
     background-color: rgba(255, 255, 255, 0);
@@ -88,4 +85,8 @@ button{
     padding: 12px 15px;
     border-radius: 5px;
     cursor: pointer;
+}
+.btn-light{
+    background-color: rgb(223, 211, 74);
+    color: black;
 }
