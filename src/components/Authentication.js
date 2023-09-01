@@ -15,12 +15,10 @@ const Authentication = async ({
 
   if (response.status === 422) {
     const responseData = await response.json();
-    console.log('錯誤資訊：', responseData.errors);
     return responseData.errors;
   }
   if (response.status === 401) {
     const responseData = await response.json();
-    console.log('錯誤資訊：', responseData);
     return responseData;
   }
   if (!response.ok) {
