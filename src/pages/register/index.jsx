@@ -1,11 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Authentication from '../../components/Authentication';
+import { getAuthToken } from '../../util/auth';
 
 function Register() {
-  const haveToken = localStorage.getItem('token');
+  const haveToken = getAuthToken();
+
   // 已登入
-  if (haveToken && haveToken !== 'undefined') {
+  if (haveToken) {
     return <div className="register">已經登入</div>;
   }
   const [error, setError] = useState({});
