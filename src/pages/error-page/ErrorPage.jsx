@@ -15,6 +15,10 @@ function ErrorPage() {
     title = 'Not found!';
     message = 'Could not find resource or page.';
   }
+  if (error.status === 422) {
+    title = '422';
+    message = '422';
+  }
 
   return (
     <>

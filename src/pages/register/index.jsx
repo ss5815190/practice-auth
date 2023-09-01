@@ -1,24 +1,30 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Authentication from '../../components/Authentication';
 
 function Register() {
   const haveToken = localStorage.getItem('token');
   // 已登入
-  if (haveToken) {
+  if (haveToken && haveToken !== 'undefined') {
     return <div className="register">已經登入</div>;
   }
+  const [error, setError] = useState({});
   const registerEmail = useRef();
   const registerPassword = useRef();
   const navigate = useNavigate();
-  const handleRegister = () => {
+  const handleRegister = async () => {
     const mode = 'signup';
-    Authentication({
-      email: registerEmail.current.value,
-      password: registerPassword.current.value,
-      mode,
-      navigate,
-    });
+    try {
+      const response = await Authentication({
+        email: registerEmail.current.value,
+        password: registerPassword.current.value,
+        mode,
+        navigate,
+      });
+      setError(response);
+    } catch (errorMessage) {
+      setError(errorMessage);
+    }
   };
   const switchToLogin = () => {
     navigate('/login');
@@ -26,6 +32,7 @@ function Register() {
   return (
     <div className="register">
       <h1>Create an Account</h1>
+      {error && Object.values(error).map((e) => (<div key={e}>{e}</div>))}
       <form>
         <label htmlFor="account">
           E-mail :

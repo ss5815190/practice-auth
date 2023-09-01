@@ -13,8 +13,15 @@ const Authentication = async ({
     }),
   });
 
-  if (response.status === 422 || response.status === 401) {
-    return response;
+  if (response.status === 422) {
+    const responseData = await response.json();
+    console.log('錯誤資訊：', responseData.errors);
+    return responseData.errors;
+  }
+  if (response.status === 401) {
+    const responseData = await response.json();
+    console.log('錯誤資訊：', responseData);
+    return responseData;
   }
   if (!response.ok) {
     throw json({ message: 'Could not authenticate user.' }, { status: 500 });

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Authentication from '../../components/Authentication';
 
@@ -6,26 +6,35 @@ function Login() {
   const navigate = useNavigate();
   const haveToken = localStorage.getItem('token');
   // 已登入
-  if (haveToken) {
+  if (haveToken && haveToken !== 'undefined') {
     return <div className="login">已經登入</div>;
   }
+  const [error, setError] = useState({});
   const loginEmail = useRef();
   const loginPassword = useRef();
-  const handleLogin = () => {
+  // 驗證登入資訊 有錯誤回傳
+  const handleLogin = async () => {
     const mode = 'login';
-    Authentication({
-      email: loginEmail.current.value,
-      password: loginPassword.current.value,
-      mode,
-      navigate,
-    });
+    try {
+      const response = await Authentication({
+        email: loginEmail.current.value,
+        password: loginPassword.current.value,
+        mode,
+        navigate,
+      });
+      setError(response);
+    } catch (errorMessage) {
+      setError(errorMessage);
+    }
   };
   const switchToRegister = () => {
     navigate('/register');
   };
+
   return (
     <div className="login">
       <h1>Login</h1>
+      {error && Object.values(error).map((e) => (<div key={e}>{e}</div>))}
       <form>
         <label htmlFor="account">
           E-mail :
