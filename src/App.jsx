@@ -9,12 +9,15 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Event from './components/Events';
 import EventDetail from './pages/event-detail';
+import { tokenLoader } from './util/auth';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
     errorElement: <ErrorPage />,
+    loader: tokenLoader,
+    id: 'root',
     children: [
       { path: '', element: <Home /> },
       { path: 'event', element: <AllEventPage />, loader: Event },

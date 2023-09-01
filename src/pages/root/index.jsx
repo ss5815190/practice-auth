@@ -1,8 +1,10 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useRouteLoaderData } from 'react-router-dom';
 import '../../style/RootLayout.css';
 
 function RootLayout() {
+  const token = useRouteLoaderData('root');
+  console.log(token);
   return (
     <>
       <div className="root-layout">
@@ -29,22 +31,41 @@ function RootLayout() {
 
             </li>
             <li>
+              {!token && (
               <NavLink
                 className={({ isActive }) => (isActive ? 'nav-active' : undefined)}
                 to="/login"
               >
                 Login
               </NavLink>
+              )}
 
             </li>
             <li>
+              {!token && (
               <NavLink
                 className={({ isActive }) => (isActive ? 'nav-active' : undefined)}
                 to="/register"
               >
                 Register
               </NavLink>
+              )}
 
+            </li>
+            <li>
+              {token && (
+              <NavLink to="/">
+                <button
+                  type="button"
+                  onClick={() => {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('expiration');
+                  }}
+                >
+                  Logout
+                </button>
+              </NavLink>
+              )}
             </li>
           </ul>
         </nav>
