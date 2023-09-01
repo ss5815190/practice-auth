@@ -16,8 +16,8 @@ const router = createBrowserRouter([
     path: '/',
     element: <RootLayout />,
     errorElement: <ErrorPage />,
-    loader: tokenLoader,
     id: 'root',
+    loader: tokenLoader,
     children: [
       { path: '', element: <Home /> },
       { path: 'event', element: <AllEventPage />, loader: Event },

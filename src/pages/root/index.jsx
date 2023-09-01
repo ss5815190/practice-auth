@@ -4,7 +4,7 @@ import '../../style/RootLayout.css';
 
 function RootLayout() {
   const token = useRouteLoaderData('root');
-  console.log(token);
+  console.log('token', token);
   return (
     <>
       <div className="root-layout">
