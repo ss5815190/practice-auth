@@ -8,7 +8,7 @@ function AllEventPage() {
     <div className="all-event">
       <h1>AllEvent</h1>
       <button className="btn-light" onClick={() => { navigate('/newEvent'); }} type="button">new event </button>
-      {events.slice().reverse().map((e) => (
+      {events.map((e) => (
         <a href={`event/${e.id}`} key={e.id}>
           <div className="events-wrap">
             <h1 className="event-title">{e.title}</h1>

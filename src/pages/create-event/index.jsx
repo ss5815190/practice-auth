@@ -1,35 +1,45 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { v4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import SubmitEvent from '../../components/SubmitEvent';
+import { getAuthToken } from '../../util/auth';
 
 function CreateEvent() {
   const titleInputRef = useRef();
   const imgUrlInputRef = useRef();
   const dateInputRef = useRef();
   const descriptionInputRef = useRef();
-  const token = localStorage.getItem('token');
+  const token = getAuthToken();
+  const [error, setError] = useState({});
   // 還沒登入
   if (!token) {
     return <div className="CreateEvent">Not login yet</div>;
   }
   const navigate = useNavigate();
   const handleCancel = () => {
-    navigate('/event');
+    navigate(-1);
   };
 
-  const handleSave = () => {
-    SubmitEvent({
-      id: v4(),
-      title: titleInputRef.current.value,
-      image: imgUrlInputRef.current.value,
-      date: dateInputRef.current.value,
-      description: descriptionInputRef.current.value,
-    });
+  const handleSave = async () => {
+    try {
+      const response = await SubmitEvent({
+        id: v4(),
+        title: titleInputRef.current.value,
+        image: imgUrlInputRef.current.value,
+        date: dateInputRef.current.value,
+        description: descriptionInputRef.current.value,
+        token,
+        navigate,
+      });
+      setError(response);
+    } catch (errorMessage) {
+      setError(errorMessage);
+    }
   };
 
   return (
     <div className="CreateEvent">
+      {error && Object.values(error).map((e) => (<h1 key={e}>{e}</h1>))}
       <form>
         <div className="title">
           <label htmlFor="title">
