@@ -1,6 +1,8 @@
 import { json } from 'react-router-dom';
 
-const Authentication = async (email, password, mode, navigate) => {
+const Authentication = async ({
+  email, password, mode, navigate,
+}) => {
   const response = await fetch(`http://localhost:8080/${mode}`, {
     method: 'POST',
     headers: {

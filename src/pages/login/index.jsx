@@ -13,7 +13,12 @@ function Login() {
   const loginPassword = useRef();
   const handleLogin = () => {
     const mode = 'login';
-    Authentication(loginEmail.current.value, loginPassword.current.value, mode, navigate);
+    Authentication({
+      email: loginEmail.current.value,
+      password: loginPassword.current.value,
+      mode,
+      navigate,
+    });
   };
   const switchToRegister = () => {
     navigate('/register');
