@@ -9,7 +9,7 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Event from './components/Events';
 import EventDetail from './pages/event-detail';
-import { tokenLoader } from './util/auth';
+import { getAuthToken } from './util/auth';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     id: 'root',
-    loader: tokenLoader,
+    loader: getAuthToken,
     children: [
       { path: '', element: <Home /> },
       { path: 'event', element: <AllEventPage />, loader: Event },

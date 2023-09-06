@@ -7,7 +7,7 @@ function RootLayout() {
   console.log('token', token);
   return (
     <>
-      <div className="root-layout">
+      <div className="root-layout" key={token}>
         <h1>todoEvent</h1>
         <nav className="nav-link">
           <ul>
